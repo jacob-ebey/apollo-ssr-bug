@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "name": "westmeercreations",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next@canary"
+    },
+    {
+      "src": "services/graphql.ts",
+      "use": "@now/node-server@canary"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/api/?",
+      "dest": "services/graphql.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    }
+  ]
+}
